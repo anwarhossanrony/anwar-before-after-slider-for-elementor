@@ -1,0 +1,194 @@
+.basfe-compare {
+	--basfe-handle-icon-color: #1f2937;
+	position: relative;
+	width: 100%;
+	height: 450px;
+	min-height: 200px;
+	overflow: hidden;
+	border-radius: 18px;
+	background: #e9edf1;
+	isolation: isolate;
+	touch-action: pan-y;
+}
+
+.basfe-image,
+.basfe-image img {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+.basfe-image {
+	position: absolute;
+	inset: 0;
+}
+
+.basfe-image img {
+	object-fit: cover;
+	object-position: center center;
+	user-select: none;
+	pointer-events: none;
+	-webkit-user-drag: none;
+}
+
+.basfe-image-before {
+	overflow: hidden;
+	z-index: 2;
+}
+
+.basfe-image-after {
+	overflow: hidden;
+	z-index: 1;
+}
+
+.basfe-divider {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 50%;
+	width: 2px;
+	margin-left: -1px;
+	background: #fff;
+	z-index: 3;
+	pointer-events: none;
+	box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.04);
+}
+
+.basfe-handle {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	width: 52px;
+	height: 52px;
+	transform: translate(-50%, -50%);
+	border: 2px solid #1f2937;
+	border-radius: 50%;
+	background: #fff;
+	box-shadow: 0 10px 26px rgba(15, 23, 42, 0.18);
+}
+
+.basfe-handle-icon {
+	display: block;
+	width: 10px;
+	height: 10px;
+	border-top: 2px solid var(--basfe-handle-icon-color);
+	border-right: 2px solid var(--basfe-handle-icon-color);
+	flex: 0 0 auto;
+}
+
+.basfe-handle-icon-left {
+	transform: rotate(-135deg);
+}
+
+.basfe-handle-icon-right {
+	transform: rotate(45deg);
+}
+
+.basfe-handle-style-lines .basfe-handle-icon {
+	width: 2px;
+	height: 14px;
+	border: 0;
+	background: var(--basfe-handle-icon-color);
+}
+
+.basfe-handle-style-lines .basfe-handle-icon-left,
+.basfe-handle-style-lines .basfe-handle-icon-right {
+	transform: none;
+}
+
+.basfe-handle-style-none .basfe-handle-icon {
+	display: none;
+}
+
+.basfe-label {
+	position: absolute;
+	top: 16px;
+	z-index: 2;
+	max-width: calc(100% - 24px);
+	padding: 8px 14px;
+	border-radius: 999px;
+	background: rgba(0, 0, 0, 0.72);
+	color: #fff;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 1.2;
+	letter-spacing: 0.01em;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	pointer-events: none;
+}
+
+.basfe-label-before {
+	left: 16px;
+}
+
+.basfe-label-after {
+	right: 16px;
+}
+
+.basfe-range {
+	position: absolute;
+	inset: 0;
+	z-index: 5;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	opacity: 0;
+	cursor: ew-resize;
+	background: transparent;
+	appearance: none;
+	-webkit-appearance: none;
+	touch-action: none;
+}
+
+.basfe-range::-webkit-slider-thumb {
+	width: 1px;
+	height: 1px;
+	appearance: none;
+	-webkit-appearance: none;
+}
+
+.basfe-range::-moz-range-thumb {
+	width: 1px;
+	height: 1px;
+	border: 0;
+	background: transparent;
+}
+
+@media (max-width: 1024px) {
+	.basfe-compare {
+		height: 350px;
+	}
+}
+
+@media (max-width: 767px) {
+	.basfe-compare {
+		height: 250px;
+	}
+
+	.basfe-label {
+		top: 12px;
+		max-width: calc(50% - 18px);
+		padding: 7px 12px;
+		font-size: 13px;
+	}
+
+	.basfe-label-before {
+		left: 12px;
+	}
+
+	.basfe-label-after {
+		right: 12px;
+	}
+
+	.basfe-handle {
+		gap: 6px;
+		width: 46px;
+		height: 46px;
+	}
+}
